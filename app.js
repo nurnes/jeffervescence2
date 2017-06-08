@@ -29,14 +29,21 @@ const app = {
   renderListItem(flick) {
     const item = this.template.cloneNode(true)
     item.querySelector(".flick-name").textContent = flick.name
-    item.querySelector('button.remove').addEventListener('click', this.removeFlick)
+    item.querySelector('button.remove').addEventListener('click', this.removeFlick.bind(this))
     item.classList.remove('template')
     item.dataset.id = flick.id
     return item
   },
 
   removeFlick(ev){
-    ev.target.closest(".flick").remove()
+    const li = ev.target.closest(".flick")
+    li.remove()
+    for(let i = 0; i<this.flicks.length; i++){
+      if(this.flicks[i].id.toString() === li.dataset.id){
+        this.flicks.splice(i, 1)
+        break
+      }
+    }
   },
 }
 
