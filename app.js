@@ -7,6 +7,18 @@ const app = {
     document
       .querySelector(selectors.formSelector)
       .addEventListener('submit', this.addFlick.bind(this))
+    this.load()
+  },
+
+  load(){
+    const fload = JSON.parse(localStorage.getItem("flicks"))
+    if(fload != null){
+      this.flicks =fload
+    } 
+    for(let i = this.flicks.length-1; i>0; i--){
+      const li = this.renderListItem(this.flicks[i])
+      this.list.insertBefore(li, this.list.firstChild)
+    }
   },
 
   addFlick(ev) {
@@ -18,12 +30,17 @@ const app = {
     }
 
     this.flicks.unshift(flick)
+    this.save()
 
     const listItem = this.renderListItem(flick)
     this.list.insertBefore(listItem, this.list.firstChild)
 
     ++ this.max
     f.reset()
+  },
+
+  save(){
+    localStorage.setItem('flicks', JSON.stringify(this.flicks))
   },
 
   renderListItem(flick) {
@@ -44,6 +61,7 @@ const app = {
         break
       }
     }
+    this.save()
   },
 }
 
