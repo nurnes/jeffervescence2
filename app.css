@@ -1,3 +1,53 @@
 .template{
     visibility: hidden;
 }
+
+
+.fave {
+    background-color: #170F0F;
+    border-color: #c9c173;
+    text-shadow: 1px 1px #c9b373;
+    color: whitesmoke;
+}
+li {
+    list-style-type: none;
+    background-color: whitesmoke;
+    height: 52px;
+}
+
+.fav {
+    background-color: palegoldenrod;
+}
+
+.del {
+    background-color: palegreen;
+}
+
+.up{
+    background-color: paleturquoise;
+}
+
+.down{
+    background-color: palevioletred;
+}
+span {
+    display: block;
+    width: 12.9rem;
+    float: left;
+}
+
+ul{
+    margin: 0;
+}
+
+.success{
+    width: 100px;
+}
+
+.clear{
+    width: 100px;
+}
+
+.b-group {
+    display: inline;
+}
